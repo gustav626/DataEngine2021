@@ -10,7 +10,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 import pandas as pd
 
-page_total=int(input('输入需要翻页的次数:'))
+page_total=50
 # 请求URL
 url1 = 'http://www.12365auto.com/zlts/0-0-0-0-0-0_0-0-0-0-0-0-0-'
 #添加请求头
@@ -31,7 +31,7 @@ for page in range(0,page_total):
     tr_list = temp.find_all('tr')
     for tr in tr_list:
         print(tr.type)
-        if (len(tr.find_all('td'))):#判断list是否为空，防溢出
+        if (len(tr.find_all('td'))):				#判断list是否为空，防溢出
             id=tr.find_all('td')[0].get_text()
             brand=tr.find_all('td')[1].get_text()
             car_model=tr.find_all('td')[2].get_text()
